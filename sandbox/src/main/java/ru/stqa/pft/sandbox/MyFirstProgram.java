@@ -4,29 +4,36 @@ public class MyFirstProgram
 {
 	public static void main(String[] args)
 	{
+		// test function
+
 		hello("where is my bottle of rum?");
 
-		double l = 5;
-		System.out.println("square's area with side " + l + " = " + area(l));
+		// few objects
 
-		double a = 4;
-		double b = 6;
-		System.out.println("rectangle's area with side " + a + " and " + b + " = " + area(a, b));
+		Square square = new Square(5);
+		Rectangle rectangle = new Rectangle(4, 6);
+
+		// test functions output
+
+		System.out.println("square's area with side " + square.side + " = " + area(square));
+		System.out.println("rectangle's area with side " + rectangle.sideA + " and " + rectangle.sideB + " = " + area(rectangle));
 	}
+
+	// test functions
 
 	public static void hello(String somebody)
 	{
 		System.out.println("Hello, " + somebody);
 	}
 
-	public static double area(double l)
+	public static double area(Square square)
 	{
-		return l * l;
+		return square.side * square.side;
 	}
 
-	public static double area(double a, double b)
+	public static double area(Rectangle rectangle)
 	{
-		return a * b;
+		return rectangle.sideA * rectangle.sideB;
 	}
 }
 
