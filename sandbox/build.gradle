@@ -15,7 +15,7 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'ru.stqa.pft.sandbox.MyFirstProgram'
+mainClassName = 'ru.stqa.pft.sandbox.Launcher'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
