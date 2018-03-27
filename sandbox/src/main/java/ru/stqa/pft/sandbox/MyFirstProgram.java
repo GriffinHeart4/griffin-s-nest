@@ -10,13 +10,13 @@ public class MyFirstProgram
 
 		// few objects
 
-		Square square = new Square(5);
-		Rectangle rectangle = new Rectangle(4, 6);
+		Square square = new Square(7);
+		Rectangle rectangle = new Rectangle(4, 98);
 
-		// test functions output
+		// test methods output
 
-		System.out.println("square's area with side " + square.side + " = " + area(square));
-		System.out.println("rectangle's area with side " + rectangle.sideA + " and " + rectangle.sideB + " = " + area(rectangle));
+		System.out.println("square's area with side " + square.side + " = " + square.area());
+		System.out.println("rectangle's area with side " + rectangle.sideA + " and " + rectangle.sideB + " = " + rectangle.area());
 	}
 
 	// test functions
@@ -24,16 +24,6 @@ public class MyFirstProgram
 	public static void hello(String somebody)
 	{
 		System.out.println("Hello, " + somebody);
-	}
-
-	public static double area(Square square)
-	{
-		return square.side * square.side;
-	}
-
-	public static double area(Rectangle rectangle)
-	{
-		return rectangle.sideA * rectangle.sideB;
 	}
 }
 
