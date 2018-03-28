@@ -1,25 +1,30 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.model;
 
-public class GroupData {
+public class GroupData
+{
     private final String name;
     private final String header;
     private final String footer;
 
-    public GroupData(String name, String header, String footer) {
+    public GroupData(String name, String header, String footer)
+    {
         this.name = name;
         this.header = header;
         this.footer = footer;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getHeader() {
+    public String getHeader()
+    {
         return header;
     }
 
-    public String getFooter() {
+    public String getFooter()
+    {
         return footer;
     }
 }
