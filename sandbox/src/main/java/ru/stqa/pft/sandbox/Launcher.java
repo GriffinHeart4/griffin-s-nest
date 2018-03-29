@@ -5,7 +5,6 @@ public class Launcher
 	public static void main(String[] args)
 	{
 		// test function
-
 		hello("where is my bottle of rum?");
 
 		// few objects
