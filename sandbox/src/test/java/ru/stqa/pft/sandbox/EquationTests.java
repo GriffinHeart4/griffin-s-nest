@@ -25,4 +25,25 @@ public class EquationTests
         Equation eq = new Equation(1, 5, 6);
         Assert.assertEquals(eq.rootNumber(), 2);
     }
+
+    @Test
+    void testLinear()
+    {
+        Equation eq = new Equation(0, 1, 1);
+        Assert.assertEquals(eq.rootNumber(), 1);
+    }
+
+    @Test
+    void testConstant()
+    {
+        Equation eq = new Equation(0, 0, 1);
+        Assert.assertEquals(eq.rootNumber(), 0);
+    }
+
+    @Test
+    void testZero()
+    {
+        Equation eq = new Equation(0, 0, 1);
+        Assert.assertEquals(eq.rootNumber(), 0);
+    }
 }
