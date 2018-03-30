@@ -14,7 +14,9 @@ public class ContactModificationTests extends TestBase
                 "Griffin",
                 "Heart",
                 "+372 8734 8342",
-                "griffinhear4@gmail.com"));
+                "griffinhear4@gmail.com",
+                null),
+                false);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
     }
