@@ -2,10 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
-
-import java.util.ArrayList;
 
 public class GroupHelper extends HelperBase
 {
@@ -41,11 +38,11 @@ public class GroupHelper extends HelperBase
         click(By.name("delete"));
     }
 
-    public void selectGroup()
+    public void selectGroup(int index)
     {
-        if (!wd.findElement(By.name("selected[]")).isSelected())
+        if (!wd.findElements(By.name("selected[]")).get(index).isSelected())
         {
-            click(By.name("selected[]"));
+            wd.findElements(By.name("selected[]")).get(index).click();
         }
     }
 
