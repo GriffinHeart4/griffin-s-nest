@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.ArrayList;
+
 public class GroupHelper extends HelperBase
 {
 
@@ -73,5 +75,10 @@ public class GroupHelper extends HelperBase
     public boolean isThereAGroupWithName(String groupName)
     {
         return wd.findElement(By.name("selected[]")).getText().equals(groupName);
+    }
+
+    public int getGroupCount()
+    {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }
