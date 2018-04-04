@@ -45,6 +45,8 @@ public class ApplicationManager
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
+
+        // Login to app
         sessionHelper.login("admin", "secret");
     }
 

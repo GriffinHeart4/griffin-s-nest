@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
@@ -10,11 +9,11 @@ import java.util.List;
 
 public class GroupHelper extends HelperBase
 {
-
     public GroupHelper(WebDriver wd)
     {
         super(wd);
     }
+
     public void returnToGroupPage()
     {
         click(By.linkText("groups"));
@@ -88,24 +87,26 @@ public class GroupHelper extends HelperBase
 
 //        THE THIRD WAY TO GO
 
-//        List<GroupData> groups = new ArrayList<>();
-//
-//        for (int i = 0; i < wd.findElements(By.cssSelector("span.group")).size(); i++)
-//        {
-//            groups.add(new GroupData(
-//                    wd.findElements(By.cssSelector("span.group")).get(i).getText(), null, null));
-//        }
-//        return groups;
+        List<GroupData> groups = new ArrayList<>();
+
+        for (int i = 0; i < wd.findElements(By.cssSelector("span.group")).size(); i++)
+        {
+            String groupName = wd.findElements(By.cssSelector("span.group")).get(i).getText();
+            String groupId = wd.findElements(By.xpath("//*[@name='selected[]']")).get(i).getAttribute("value");
+
+            groups.add(new GroupData(groupName, null, null, groupId));
+        }
+        return groups;
 
         // THE SECOND WAY TO GO
 
-        List<GroupData> groups = new ArrayList<>();
-
-        for (WebElement element: wd.findElements(By.cssSelector("span.group")))
-        {
-            groups.add(new GroupData(element.getText(), null, null));
-        }
-        return groups;
+//        List<GroupData> groups = new ArrayList<>();
+//
+//        for (WebElement element: wd.findElements(By.cssSelector("span.group")))
+//        {
+//            groups.add(new GroupData(element.getText(), null, null));
+//        }
+//        return groups;
 
         // THE FIRST ONE WAY TO GO
 
