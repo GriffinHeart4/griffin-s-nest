@@ -92,7 +92,7 @@ public class GroupHelper extends HelperBase
         for (int i = 0; i < wd.findElements(By.cssSelector("span.group")).size(); i++)
         {
             String groupName = wd.findElements(By.cssSelector("span.group")).get(i).getText();
-            String groupId = wd.findElements(By.xpath("//*[@name='selected[]']")).get(i).getAttribute("value");
+            int groupId = Integer.parseInt(wd.findElements(By.xpath("//*[@name='selected[]']")).get(i).getAttribute("value"));
 
             groups.add(new GroupData(groupName, null, null, groupId));
         }
