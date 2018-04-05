@@ -85,7 +85,7 @@ public class GroupHelper extends HelperBase
 
     public List<GroupData> getGroupList()
     {
-
+        
 //        THE THIRD WAY TO GO
 
         List<GroupData> groups = new ArrayList<>();
@@ -121,5 +121,14 @@ public class GroupHelper extends HelperBase
 //        }
 //
 //        return groups;
+    }
+
+    public void modifyGroup(int index, GroupData group)
+    {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
     }
 }
