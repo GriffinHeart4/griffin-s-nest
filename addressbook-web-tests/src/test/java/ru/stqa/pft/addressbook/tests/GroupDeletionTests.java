@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.appmanager.NavigationHelper;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class GroupDeletionTests extends TestBase
     public void testGroupDeletion()
     {
         app.getNavigationHelper().gotoGroupPage();
-        if (! app.getGroupHelper().isThereAGroup())
+        if (!app.getGroupHelper().isThereAGroup())
         {
             app.getGroupHelper().createGroup(new GroupData("test1", null, null));
         }

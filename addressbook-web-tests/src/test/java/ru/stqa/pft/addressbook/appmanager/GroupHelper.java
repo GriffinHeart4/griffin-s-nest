@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupHelper extends HelperBase
+
 {
     public GroupHelper(WebDriver wd)
     {

@@ -3,11 +3,15 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase
 {
@@ -42,9 +46,12 @@ public class ContactHelper extends HelperBase
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void selectContact()
+    public void selectContact(int index)
     {
-        click(By.xpath("//input[@id!='MassCB' and @type='checkbox']"));
+        if (! wd.findElements(By.name("selected[]")).get(index).isSelected())
+        {
+            wd.findElements(By.name("selected[]")).get(index).click();
+        }
     }
 
     public void deleteContact()
@@ -72,5 +79,22 @@ public class ContactHelper extends HelperBase
     public boolean isThereAContact()
     {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public List<ContactData> getContactList()
+    {
+        List<WebElement> contacts = wd.findElements(By.name("selected[]"));
+        List<ContactData> contactObjects = new ArrayList<>();
+
+        for(WebElement contact: contacts)
+        {
+            contactObjects.add(new ContactData(
+                    contact.findElement(By.xpath("//*[@name='entry']/td[3]")).getText(),
+                    contact.findElement(By.xpath("//*[@name='entry']/td[2]")).getText(),
+                    null,
+                    null,
+                    null));
+        }
+        return contactObjects;
     }
 }
