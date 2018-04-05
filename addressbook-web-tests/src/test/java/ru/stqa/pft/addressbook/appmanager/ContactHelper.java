@@ -97,4 +97,12 @@ public class ContactHelper extends HelperBase
         }
         return contactObjects;
     }
+
+    public void selectGroup(int index)
+    {
+        if (! wd.findElements(By.name("selected[]")).get(index).isSelected())
+        {
+            wd.findElements(By.name("selected[]")).get(index).click();
+        }
+    }
 }
