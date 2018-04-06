@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase
 
@@ -42,12 +42,9 @@ public class GroupHelper extends HelperBase
         click(By.name("delete"));
     }
 
-    public void selectGroup(int index)
+    public void selectGroupById(int id)
     {
-        if (!wd.findElements(By.name("selected[]")).get(index).isSelected())
-        {
-            wd.findElements(By.name("selected[]")).get(index).click();
-        }
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void initGroupModification()
@@ -83,12 +80,9 @@ public class GroupHelper extends HelperBase
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupData> list()
+    public Set<GroupData> all()
     {
-        
-//        THE THIRD WAY TO GO
-
-        List<GroupData> groups = new ArrayList<>();
+        Set<GroupData> groups = new HashSet<>();
 
         for (int i = 0; i < wd.findElements(By.cssSelector("span.group")).size(); i++)
         {
@@ -97,43 +91,20 @@ public class GroupHelper extends HelperBase
             groups.add(new GroupData().withName(groupName).withId(groupId));
         }
         return groups;
-
-        // THE SECOND WAY TO GO
-
-//        List<GroupData> groups = new ArrayList<>();
-//
-//        for (WebElement element: wd.findElements(By.cssSelector("span.group")))
-//        {
-//            groups.add(new GroupData(element.getText(), null, null));
-//        }
-//        return groups;
-
-        // THE FIRST ONE WAY TO GO
-
-//        List<GroupData> groups = new ArrayList<>();
-//        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
-//        for (WebElement element: elements)
-//        {
-//            String name = element.getText();
-//            GroupData group = new GroupData(name, null, null);
-//            groups.add(group);
-//        }
-//
-//        return groups;
     }
 
-    public void modify(int index, GroupData group)
+    public void modify(GroupData group)
     {
-        selectGroup(index);
+        selectGroupById(group.getId());
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
         returnToGroupPage();
     }
 
-    public void delete(int index)
+    public void delete(GroupData group)
     {
-        selectGroup(index);
+        selectGroupById(group.getId());
         deleteSelectedGroups();
         returnToGroupPage();
     }
