@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -80,9 +81,9 @@ public class GroupHelper extends HelperBase
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public Set<GroupData> all()
+    public Groups all()
     {
-        Set<GroupData> groups = new HashSet<>();
+        Groups groups = new Groups();
 
         for (int i = 0; i < wd.findElements(By.cssSelector("span.group")).size(); i++)
         {

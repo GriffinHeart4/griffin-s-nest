@@ -26,6 +26,9 @@ dependencies {
 
     // Selenium java
     compile 'org.seleniumhq.selenium:selenium-java:3.11.0'
+
+    // hamcrest framework
+    compile 'it.ozimov:hamcrest:2.0.0'
 }
 
 // In this section you declare where to find the dependencies of your project

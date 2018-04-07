@@ -36,6 +36,8 @@
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.9.1" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.hamcrest:java-hamcrest:2.0.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.13" level="project" />
     <orderEntry type="library" name="Gradle: org.checkerframework:checker-compat-qual:2.0.0" level="project" />
   </component>
 </module>
